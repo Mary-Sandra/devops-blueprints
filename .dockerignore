@@ -1,0 +1,50 @@
+# =========================================================================
+# TITLE: Production-Grade Python/Django .dockerignore Blueprint
+# INTERVIEW CHEAT SHEET (WHY WE USE THIS):
+#   1. Security: Blocks local secret environment files (.env) from baking into images.
+#   2. Performance: Blocks massive local virtual environments (venv/) so builds are fast.
+#   3. Cleanliness: Keeps system garbage (.DS_Store, __pycache__) out of the cloud.
+# =========================================================================
+
+# --- Python Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+pyenv/
+
+# --- Environment Secrets & Credentials ---
+*.env
+.env
+.env.*
+secrets.json
+*.pem
+*.key
+
+# --- Local Git & Repository Files ---
+.git
+.gitignore
+.gitattributes
+README.md
+README.Docker.md
+compose.yaml
+docker-compose.yml
+
+# --- Python System Garbage & Cache ---
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# --- Local Databases & Media Uploads (Testing remnants) ---
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# --- OS System Junk ---
+.DS_Store
+Thumbs.db
